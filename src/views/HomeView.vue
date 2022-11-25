@@ -57,6 +57,23 @@
       </v-icon>
     </v-btn>
 
+
+    <v-tooltip right>
+      <template v-slot:activator="{ on, attrs }">
+        <v-btn
+            fab
+            style="position: absolute; z-index: 999; bottom: 20px"
+            v-bind="attrs"
+            v-on="on"
+        >
+          <v-icon>
+            mdi-help
+          </v-icon>
+        </v-btn>
+      </template>
+      <span>数据来自于30分钟之内，每5分钟更新一次</span>
+    </v-tooltip>
+
     <div style="width: 100% ;height: 100%;" id="mount-point">
 
     </div>
