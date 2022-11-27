@@ -178,17 +178,27 @@ export default {
 			this.myChart.setOption(this.baseOptions);
 		},
 		async getData(){
-			const constTag = this.curTag;
+			let constTag;
+			let originTag = this.curTag;
+			if(this.curTag === 'c++'){
+				constTag = 'c%2b%2b';
+			}
+			else if(this.curTag === 'c#'){
+				constTag = 'c%23';
+			}
+			else{
+				constTag = this.curTag;
+			}
 			if(this.curTab === 0){
 				const [resp, err] = await tag.flinkGetTag(constTag);
 				if(!err){
-					[this.keyLs, this.valLs] = processData(resp, constTag);
+					[this.keyLs, this.valLs] = processData(resp, originTag);
 				}
 			}
 			else{
 				const [resp, err] = await tag.sparkGetTag(constTag);
 				if(!err){
-					[this.keyLs, this.valLs] = processData(resp, constTag);
+					[this.keyLs, this.valLs] = processData(resp, originTag);
 				}
 			}
 			this.baseOptions.series[0].data = this.valLs;
