@@ -71,7 +71,7 @@
           </v-icon>
         </v-btn>
       </template>
-      <span>数据来自于30分钟之内，每5分钟更新一次</span>
+      <span>数据来自于10分钟之内，每5秒钟更新一次</span>
     </v-tooltip>
 
     <div style="width: 100% ;height: 100%;" id="mount-point">
